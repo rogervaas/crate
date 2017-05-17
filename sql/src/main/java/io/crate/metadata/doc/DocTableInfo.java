@@ -249,9 +249,16 @@ public class DocTableInfo implements TableInfo, ShardedTable, StoredTable {
         }
     }
 
-    private boolean isAnOpenIndex(String index) {
-        for (String openIndex : concreteOpenIndices) {
-            if (openIndex.equals(index)) {
+    public boolean isAClosedIndex(String index) {
+        if (isAPresentIndex(index, concreteIndices) && !isAPresentIndex(index, concreteOpenIndices)) {
+            return true;
+        }
+        return false;
+    }
+
+    private static boolean isAPresentIndex(String index, String[] concreteIndices) {
+        for (String concreteIndex : concreteIndices) {
+            if (concreteIndex.equals(index)) {
                 return true;
             }
         }

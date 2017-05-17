@@ -23,3 +23,6 @@ Changes
 Fixes
 =====
 
+ - Now logs a warning message when attempting to insert into a closed
+   partition.
+
