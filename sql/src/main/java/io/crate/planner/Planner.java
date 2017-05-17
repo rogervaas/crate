@@ -372,7 +372,7 @@ public class Planner extends AnalyzedStatementVisitor<Planner.Context, Plan> {
             String[] indices = partitions.toArray(new String[partitions.size()]);
             for (int i = 0; i < indices.length; i++) {
                 if (analysis.tableInfo().isAClosedIndex(indices[i])) {
-                    LOGGER.warn(String.format("Trying to insert value into closed partition: %s", indices[i]));
+                    LOGGER.warn(String.format(Locale.ENGLISH, "Trying to insert value into closed partition: %s", indices[i]));
                 }
 
                 Symbol[] onDuplicateKeyAssignments = null;
